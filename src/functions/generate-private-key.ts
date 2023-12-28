@@ -5,7 +5,7 @@ export default async function generatePrivateKey(page: Page){
         await page.goto('https://allprivatekeys.com/private-key-to-address');
 
         const input = await page.$('#fetcher');
-        const characters = "123456789ABCDEF";
+        const characters = "0123456789ABCDEF";
         let private_key = ""
     
         for (let i = 0; i < 64; i++) {
