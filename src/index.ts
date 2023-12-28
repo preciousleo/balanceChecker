@@ -5,7 +5,7 @@ import saveKey from "./functions/save-key";
 import { isEmpty } from "./functions/helpers";
 
 (async () => {
-    const browser = await puppeteer.launch({headless: false});
+    const browser = await puppeteer.launch({headless: "new"});
     const page = await browser.newPage();
 
     for (let index = 0; index < 100; index++) {
