@@ -12,7 +12,7 @@ import { isEmpty } from "./functions/helpers";
         const {uncompressedP2PKH, private_key} = await generatePrivateKey(page)
         const balance = await getBalance(uncompressedP2PKH, page)
     
-        if(!isEmpty(balance) && balance > 0) await saveKey(private_key, `${balance}`)
+        if(!isEmpty(balance)) await saveKey(private_key, `${balance}`)
     }
 })()
 
