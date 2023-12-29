@@ -1,4 +1,5 @@
 import { Page } from "puppeteer";
+import { isEmpty } from "./helpers";
 
 export default async function generatePrivateKey(page: Page){
     try {
@@ -21,7 +22,7 @@ export default async function generatePrivateKey(page: Page){
         const uncompressedP2PKH = await page.$eval("#uncompp2pkh", input => input.value)
 
         return {
-            uncompressedP2PKH,
+            uncompressedP2PKH: isEmpty(uncompressedP2PKH) ? null : uncompressedP2PKH,
             private_key
         }
     } catch (error) {
