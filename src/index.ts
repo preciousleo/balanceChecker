@@ -9,12 +9,11 @@ import { isEmpty } from "./functions/helpers";
     const page = await browser.newPage();
 
     for (let index = 0; index < 100; index++) {
-        const {uncompressedP2PKH, private_key} = await generatePrivateKey(page)
-        console.log(uncompressedP2PKH)
-        if(isEmpty(uncompressedP2PKH)) continue;
-        const balance = await getBalance(uncompressedP2PKH, page)
+        const data = await generatePrivateKey(page)
+        if(isEmpty(data?.uncompressedP2PKH)) continue;
+        const balance = await getBalance(data?.uncompressedP2PKH, page)
     
-        if(!balance) await saveKey(private_key, `${balance}`)
+        if(!balance) await saveKey(data?.private_key, `${balance}`)
     }
 })()
 
