@@ -10,7 +10,7 @@
     "view": "pm2 monit",
     "status": "pm2 status",
     "build": "tsc",
-    "dev": "ts-node src/index.ts"
+    "dev": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
